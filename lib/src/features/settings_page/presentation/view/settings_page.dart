@@ -54,19 +54,41 @@ class SettingTypeCard extends StatelessWidget {
       },
       splashColor: Colors.transparent,
       borderRadius: const BorderRadius.all(Radius.circular(10)),
-      child: Ink(
-        padding: const EdgeInsets.all(16),
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          border: Border.fromBorderSide(BorderSide(color: KColors.white54, width: 0.5)),
-        ),
-        child: Center(
-          child: AppText(
-            type.name,
-            fontSize: 20,
-          ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Ink(
+                padding: const EdgeInsets.all(16),
+                height: double.infinity,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  border: Border.fromBorderSide(BorderSide(color: KColors.white54, width: 0.5)),
+                ),
+                child: Center(
+                  child: AppText(
+                    type.name,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 0,
+              child: Column(
+                children: [
+                  Image.asset(
+                    "assets/images/lines-bg.png",
+                    fit: BoxFit.fill,
+                    height: 350,
+                    color: const Color(0x0DFFFFFF),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

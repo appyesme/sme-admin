@@ -125,21 +125,11 @@ class TabTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: onTap,
-      contentPadding: const EdgeInsets.all(12),
-      minTileHeight: 30,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       tileColor: selected ? KColors.blue : null,
-      leading: DecoratedBox(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: selected ? KColors.white10 : null,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-          child: Icon(
-            icon,
-            color: selected ? KColors.white : KColors.grey,
-          ),
-        ),
+      leading: Icon(
+        icon,
+        color: selected ? KColors.white : KColors.grey,
       ),
       title: AppText(
         title,

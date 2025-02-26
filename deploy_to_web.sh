@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define constant for Firebase hosting target
-HOSTING_TARGET="sme-admin"
+HOSTING_TARGET="admin-sme"
 
 # Clean and get dependencies
 flutter clean
