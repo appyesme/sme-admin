@@ -1,5 +1,7 @@
 #!/bin/bash
 
+read -p "$(tput bold)$(tput setaf 3)Did you update the app vesrion & .env cred ?$(tput sgr0)" update
+
 # Define constant for Firebase hosting target
 HOSTING_TARGET="admin-sme"
 
