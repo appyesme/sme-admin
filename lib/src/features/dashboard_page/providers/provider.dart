@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../services/api_services/admins_api.dart';
-import '../../profile_page/models/user_details.dart';
+import '../../requests_page/models/user_details.dart';
 import '../models/weekly_analytics.dart';
 import 'state.dart';
 

@@ -9,13 +9,15 @@ enum NavType {
   Dashboard,
   Requests,
   Payments,
-  Users;
+  Users,
+  Settings;
 
   IconData get icon {
     if (this == Dashboard) return Icons.dashboard;
     if (this == Requests) return Icons.new_label;
     if (this == Payments) return Icons.currency_rupee;
     if (this == Users) return Icons.people;
+    if (this == Settings) return Icons.settings;
     throw Exception("Invalid type");
   }
 }

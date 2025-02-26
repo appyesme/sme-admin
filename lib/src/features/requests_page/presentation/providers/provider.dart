@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../services/api_services/admins_api.dart';
 import '../../../../utils/custom_toast.dart';
 import '../../../../utils/dialog/dailog_helper.dart';
-import '../../../profile_page/models/user_details.dart';
+import '../../models/user_details.dart';
 import 'state.dart';
 
 final requestsProvider = StateNotifierProvider.autoDispose<NewJoiningRequestNotifier, NewJoiningRequestState>(

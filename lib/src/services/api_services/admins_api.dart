@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 
 import '../../core/api/api_helper.dart';
@@ -8,7 +6,8 @@ import '../../features/dashboard_page/models/weekly_analytics.dart';
 import '../../features/payments_page/models/payment_clearance_model.dart';
 import '../../features/platform_users_page/models/filter_model.dart';
 import '../../features/platform_users_page/models/user_model.dart';
-import '../../features/profile_page/models/user_details.dart';
+import '../../features/requests_page/models/user_details.dart';
+import '../../features/settings_page/models/commission_model.dart';
 import '../../utils/custom_toast.dart';
 
 @immutable
@@ -68,7 +67,6 @@ abstract class AdminsApi {
     FilterModel filter = FilterModel.defaultValue,
     int page = 0,
   }) async {
-    log("CACLLED");
     String path = "/admin/users";
     final response = await ApiHelper.get(
       path,
@@ -102,6 +100,32 @@ abstract class AdminsApi {
     return response.fold<List<ChartEarningModel>?>(
       (error) => Toast.failure(error.message),
       (success) => List.from(success.data ?? []).map((e) => ChartEarningModel.fromJson(e)).toList(),
+    );
+  }
+
+  static Future<CommissionModel?> getCommissionDetails() async {
+    String path = "/admin/commissons";
+    final response = await ApiHelper.get(path);
+
+    return response.fold<CommissionModel?>(
+      (error) => Toast.failure(error.message),
+      (success) => CommissionModel.fromJson(success.data),
+    );
+  }
+
+  static Future<CommissionModel?> updateCommissionDetails(double commissionPercentage, double gstPercentage) async {
+    String path = "/admin/commissons";
+    final response = await ApiHelper.post(
+      path,
+      body: {
+        "commission_percentage": commissionPercentage,
+        "gst_percentage": gstPercentage,
+      },
+    );
+
+    return response.fold<CommissionModel?>(
+      (error) => Toast.failure(error.message),
+      (success) => CommissionModel.fromJson(success.data),
     );
   }
 }

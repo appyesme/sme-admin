@@ -9,6 +9,7 @@ import '../../dashboard_page/views/dashboard_page.dart';
 import '../../payments_page/presentation/view/payments_page.dart';
 import '../../platform_users_page/views/platform_users_page.dart';
 import '../../requests_page/presentation/view/requests_page.dart';
+import '../../settings_page/presentation/view/settings_page.dart';
 import '../provider/provider.dart';
 
 class LandingPage extends ConsumerWidget {
@@ -84,6 +85,7 @@ class LandingPage extends ConsumerWidget {
             child: Consumer(
               builder: (context, ref, child) {
                 final selectedNavType = ref.watch(navbarProvider);
+
                 if (selectedNavType == NavType.Dashboard) {
                   return const DashboardPage();
                 } else if (selectedNavType == NavType.Requests) {
@@ -92,8 +94,10 @@ class LandingPage extends ConsumerWidget {
                   return const PaymentsPage();
                 } else if (selectedNavType == NavType.Users) {
                   return const PlatformUsersPage();
+                } else if (selectedNavType == NavType.Settings) {
+                  return const SettingsPage();
                 } else {
-                  return const SizedBox();
+                  throw Exception("No page found");
                 }
               },
             ),
@@ -122,7 +126,7 @@ class TabTile extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       contentPadding: const EdgeInsets.all(12),
-      minTileHeight: 50,
+      minTileHeight: 30,
       tileColor: selected ? KColors.blue : null,
       leading: DecoratedBox(
         decoration: BoxDecoration(
@@ -130,7 +134,7 @@ class TabTile extends StatelessWidget {
           color: selected ? KColors.white10 : null,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           child: Icon(
             icon,
             color: selected ? KColors.white : KColors.grey,

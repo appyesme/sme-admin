@@ -6,7 +6,7 @@ import '../../../../core/constants/kcolors.dart';
 import '../../../../widgets/app_text.dart';
 import '../../../../widgets/loading_indidactor.dart';
 import '../../../../widgets/no_content_message_widget.dart';
-import '../../../profile_page/models/user_details.dart';
+import '../../models/user_details.dart';
 import '../providers/provider.dart';
 import 'widgets/view_user_details_drawer.dart';
 
