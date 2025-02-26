@@ -13,7 +13,7 @@ import '../../utils/custom_toast.dart';
 @immutable
 abstract class AdminsApi {
   static Future<List<UserDetails>?> getNewEntrepreneursJoiningRequests() async {
-    String path = "/admin/users/joining-requests";
+    String path = "/v1/admin/users/joining-requests";
     final response = await ApiHelper.get(path);
 
     return response.fold<List<UserDetails>?>(
@@ -23,7 +23,7 @@ abstract class AdminsApi {
   }
 
   static Future<UserDetails?> approveOrRejectEntrepreneur(String joiningRequestorId, bool approvalStatus) async {
-    String path = "/admin/users/$joiningRequestorId/approval";
+    String path = "/v1/admin/users/$joiningRequestorId/approval";
     final response = await ApiHelper.put(path, queryParams: {"approval_status": approvalStatus});
 
     return response.fold<UserDetails?>(
@@ -33,7 +33,7 @@ abstract class AdminsApi {
   }
 
   static Future<List<PaymentClearanceEntrepreneur>?> getPaymentClearanceEntrepreneurs() async {
-    String path = "/admin/payments/clearance-entrepreneurs";
+    String path = "/v1/admin/payments/clearance-entrepreneurs";
     final response = await ApiHelper.get(path);
 
     return response.fold<List<PaymentClearanceEntrepreneur>?>(
@@ -43,7 +43,7 @@ abstract class AdminsApi {
   }
 
   static Future<PaymentClearanceEntrepreneur?> getClearingPaymentDetails(String entrepreneurId) async {
-    String path = "/admin/payments/status/clear";
+    String path = "/v1/admin/payments/status/clear";
     final response = await ApiHelper.get(path, queryParams: {"entrepreneur_id": entrepreneurId});
 
     return response.fold<PaymentClearanceEntrepreneur?>(
@@ -53,7 +53,7 @@ abstract class AdminsApi {
   }
 
   static Future<bool?> markAsPaymentCleared(String entrepreneurId, List<String> paymentIds) async {
-    String path = "/admin/payments/status/clear";
+    String path = "/v1/admin/payments/status/clear";
     final response = await ApiHelper.put(
       path,
       queryParams: {"entrepreneur_id": entrepreneurId},
@@ -67,7 +67,7 @@ abstract class AdminsApi {
     FilterModel filter = FilterModel.defaultValue,
     int page = 0,
   }) async {
-    String path = "/admin/users";
+    String path = "/v1/admin/users";
     final response = await ApiHelper.get(
       path,
       queryParams: {
@@ -84,7 +84,7 @@ abstract class AdminsApi {
   }
 
   static Future<List<ChartJoiningModel>?> getChartJoinings(String start, String end) async {
-    String path = "/admin/analytics/joinings";
+    String path = "/v1/admin/analytics/joinings";
     final response = await ApiHelper.get(path, queryParams: {"start_date": start, "end_date": end});
 
     return response.fold<List<ChartJoiningModel>?>(
@@ -94,7 +94,7 @@ abstract class AdminsApi {
   }
 
   static Future<List<ChartEarningModel>?> getChartEarnings(String start, String end) async {
-    String path = "/admin/analytics/earnings";
+    String path = "/v1/admin/analytics/earnings";
     final response = await ApiHelper.get(path, queryParams: {"start_date": start, "end_date": end});
 
     return response.fold<List<ChartEarningModel>?>(
@@ -104,7 +104,7 @@ abstract class AdminsApi {
   }
 
   static Future<CommissionModel?> getCommissionDetails() async {
-    String path = "/admin/commissons";
+    String path = "/v1/admin/commissons";
     final response = await ApiHelper.get(path);
 
     return response.fold<CommissionModel?>(
@@ -114,7 +114,7 @@ abstract class AdminsApi {
   }
 
   static Future<CommissionModel?> updateCommissionDetails(double commissionPercentage, double gstPercentage) async {
-    String path = "/admin/commissons";
+    String path = "/v1/admin/commissons";
     final response = await ApiHelper.post(
       path,
       body: {

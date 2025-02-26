@@ -9,3 +9,5 @@ extension UserTypeExt on String? {
     return null;
   }
 }
+
+enum ApiVersion { v1, v2 }

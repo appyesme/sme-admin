@@ -28,8 +28,6 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    PrefService.setToken(
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDMxMzkxMzAsImlhdCI6MTc0MDU0NzEzMCwicGhvbmVfbnVtYmVyIjoiKzkxOTE2NDgyNTE4OSIsInN1YiI6IjVjMmIzMzIzLTVjMWUtNGQxZi1iZTAyLWU5OWNhMTZhYTNkYyIsInVzZXJfdHlwZSI6IkFETUlOIn0.zlUxlWp7rKvyRskJmCKHZiolxD7oAyiknpIH3UaOiY8");
     final routerConfig = ref.watch(goRouterProvider);
 
     return ToastificationWrapper(
