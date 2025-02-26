@@ -3,7 +3,9 @@ import '../enums/enums.dart';
 
 const appName = "sme dashboard";
 
-String apiUrl = EnvOptions.API_URL;
+enum ApiVersion { v1, v2 }
+
+String apiUrlV1 = "${EnvOptions.API_URL}/${ApiVersion.v1.name}";
 
 bool get isADMIN => userType == UserType.ADMIN;
 bool get isLoggedIn => userId != null;
